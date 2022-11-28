@@ -1,0 +1,38 @@
+header {
+    img {
+        margin-left: -16px;
+        height: 60.9px;
+    }
+}
+
+.main {
+    float: left;
+
+    h3 {
+        padding: 16px;
+        color: red;
+    }
+
+    p {
+        margin-left: -22px;
+        margin-top: -15px;
+    }
+
+    .sidebar {
+        background-color: white;
+
+        ul {
+            border-radius: 0px 0px 8px 0px;
+
+            li a:hover {
+                background-color: #418fc8 !important;
+            }
+        }
+    }
+
+
+    .user-panel {
+        background-color: #418fc8;
+    }
+
+}

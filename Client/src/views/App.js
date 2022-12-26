@@ -12,6 +12,19 @@ import Notify from './Student/Notify';
 import Receipt from './Student/Receipt';
 import Stay from './Student/Stay';
 import Staff from './Staff/Staff';
+import DetailStaff from './Admin/DetailStaff';
+import UpdateStaff from './Admin/UpdateStaff';
+import Room from './Admin/Room';
+import ManagerStudent from './Admin/ManagerStudent';
+import RegisterRoom from './Admin/RegisterRoom';
+import Accommodation from './Student/Accommodation';
+import Invoice from './Student/Invoice';
+import DetailStudent from './Admin/DetailStudent';
+import ManageReceipt from './Admin/ManageReceipt';
+import PayElicWar from './Student/PayElicWar';
+import Statistical from './Admin/Statistical';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +47,7 @@ const App = () => {
     <Router>
       <div className="App">
         <header className="App-header">
+          <ToastContainer />
           <Switch>
             <Route path="/" exact render={() => {
               return localStorage.getItem("accessToken") == "user" ? <Home /> : <Redirect to="/Login" />
@@ -52,17 +66,52 @@ const App = () => {
               <User3 />
             </Route>
             <Route path="/admin" render={() => {
-              return localStorage.getItem(localStorage.getItem("account")) == "Admin" ? <Admin /> : <Redirect to="/Login" />
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" ? <Admin /> : <>{localStorage.getItem(localStorage.getItem("account")) == "Manager" ? toast.error("Trang này dành cho admin") && <ManagerStudent /> : <Redirect to="/Login" />} </>
             }}>
             </Route>
+            <Route path="/room" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" || "Manager" ? <Room /> : <Redirect to="/Login" />
+            }}>
+            </Route>
+            <Route path="/registerRoom" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" || "Manager" ? <RegisterRoom /> : <Redirect to="/Login" />
+            }}>
+            </Route>
+            <Route path="/ManagerStudent" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" || "Manager" ? <ManagerStudent /> : <Redirect to="/Login" />
+            }}></Route>
+            <Route path="/ManageReceipt" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" || "Manager" ? <ManageReceipt /> : <Redirect to="/Login" />
+            }}></Route>
+            <Route path="/statistical" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" || "Manager" ? <Statistical /> : <Redirect to="/Login" />
+            }}></Route>
             <Route path="/student" render={() => {
               return localStorage.getItem(localStorage.getItem("account")) == "Student" ? <Student /> : <Redirect to="/Login" />
             }}>
             </Route>
-            <Route path="/staff" render={() => {
-              return localStorage.getItem(localStorage.getItem("account")) == "Manager" ? <Staff /> : <Redirect to="/Login" />
+            <Route path="/payElicWar" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Student" ? <PayElicWar /> : <Redirect to="/Login" />
             }}>
             </Route>
+            <Route path="/accommodation" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Student" ? <Accommodation /> : <Redirect to="/Login" />
+            }}>
+            </Route>
+            <Route path="/Invoice" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Student" ? <Invoice /> : <Redirect to="/Login" />
+            }}>
+            </Route>
+            <Route path="/staff" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Manager" ? <ManagerStudent /> : <Redirect to="/Login" />
+            }}>
+            </Route>
+            <Route path="/DetailStaff/:id" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" || "Manager" ? <DetailStaff /> : <Redirect to="/Login" />
+            }}></Route>
+            <Route path="/DetailStudent/:id" render={() => {
+              return localStorage.getItem(localStorage.getItem("account")) == "Admin" || "Manager" ? <DetailStudent /> : <Redirect to="/Login" />
+            }}></Route>
             <Route path="/Login" >
               <Login
                 Token={check}

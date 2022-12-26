@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Server.Models
 {
     public class CreateManager
     {
+        [JsonIgnore]
         public int? Id { get; set; }
         [Required]
         public string LastName { get; set; }
@@ -23,8 +25,11 @@ namespace Server.Models
         public bool Gender { get; set; }
         [Required]
         public int IdCard { get; set; }
-       
+
+        [JsonIgnore]
         public bool? Status { get; set; }
+
+        [JsonIgnore]
      
         public virtual Account? Acount { get; set; }
 

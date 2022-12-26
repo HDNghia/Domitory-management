@@ -18,6 +18,7 @@ a:hover {
 .header {
 
     border: 1px solid black;
+    background: white;
 
     i,
     span {
@@ -169,7 +170,8 @@ a.navbar-brand {
 
 /***********************  TOP Bar ********************/
 .sidebar {
-    width: 220px;
+    height: 100%;
+    width: 226px;
     background-color: #000;
     transition: all 0.5s ease-in-out;
 }
@@ -225,7 +227,6 @@ a.navbar-brand {
     left: -5px;
     top: 0;
     width: 5px;
-    background-color: #111;
     height: 100%;
 }
 
@@ -10935,3 +10936,13 @@ a.text-gray-dark:hover {
 }
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+
+
+.Fixed-sidebar {
+    position: sticky;
+    top: 0;
+}
+
+.bg-header {
+    background-color: white;
+}

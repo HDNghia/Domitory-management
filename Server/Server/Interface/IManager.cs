@@ -6,6 +6,7 @@ namespace Server.Interface
     {
         IEnumerable<Manager> GetAllManager();
         Manager GetManagerById(int id );
+        Manager GetManagerByAccount(int id);
         IEnumerable<Manager> GetManagerByIdBock(int id);
         void CreateManager(CreateManager model);
         void UpdateManager(int id,UpdateManager model);

@@ -50,6 +50,11 @@ namespace Server.Repository
             return _context.Managers;
         }
 
+        public Manager GetManagerByAccount(int id)
+        {
+            return _context.Managers.Where(m => m.Account.Id == id).FirstOrDefault();
+        }
+
         public Manager GetManagerById(int id)
         {
             var manager = _context.Managers.Find(id);

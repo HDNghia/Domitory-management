@@ -24,7 +24,7 @@ namespace Server.Controllers
         }
         [HttpGet("{roomId}/{studentId}")]
         public IActionResult GetRegisterRoom(int roomId, int studentId) {
-            var registerRoom=_registerRoom.GetRegisterRoom(roomId, studentId);
+            var registerRoom=_registerRoom.GetRegisterRoomByRoomIdStudentId(roomId, studentId);
             return Ok(registerRoom);
         }
         [HttpGet("{roomId}/room")]
@@ -43,9 +43,9 @@ namespace Server.Controllers
             _registerRoom.CreateRegisterRoom(model);
             return Ok(new { message = "Register Room Success"});
         }
-        [HttpPut("roomId={roomId}&studentId={studentId}")]
-        public IActionResult UpdateRegisterRoom(int roomId,int studentId,UpdateRegisterRoom model) {
-            _registerRoom.UpdateRegisterRoom(roomId, studentId,model);
+        [HttpPut("{registerRoomId}")]
+        public IActionResult UpdateRegisterRoom(int registerRoomId, UpdateRegisterRoom model) {
+            _registerRoom.UpdateRegisterRoom(registerRoomId, model);
             return Ok(new { message = "Update success"});
         } 
 

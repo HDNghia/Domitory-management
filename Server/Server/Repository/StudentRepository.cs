@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Server.Data;
 using Server.Interface;
 using Server.Models;
@@ -38,9 +39,31 @@ namespace Server.Repository
             _context.SaveChanges();
         }
 
-        public IEnumerable<Student> GetAllStudents()
+        public IEnumerable<StudentDTO> GetAllStudents()
         {
-            return _context.Students;
+            var students = _context.Students
+                .Include(s => s.University)
+                .Include(s => s.RegisterRooms.Where(r => r.Status == true))
+                .Include(s=>s.RegisterRooms)
+                    .ThenInclude(r => r.Room)
+                .ToList();
+
+            return _mapper.Map<List<StudentDTO>>(students);
+        }
+
+        public StudentDTO GetStudentByAccountId(int accountId)
+        {
+            if (_context.Accounts.Find(accountId) == null)
+                throw new KeyNotFoundException("Account not found");
+            var Student = _context.Students.Where(s => s.account.Id == accountId)
+                .Include(s => s.University)
+                .Include(s => s.RegisterRooms.Where(r => r.Status == true))
+                .Include(s => s.RegisterRooms)
+                    .ThenInclude(r => r.Room)
+                .FirstOrDefault();
+            
+            
+            return _mapper.Map<StudentDTO>(Student);
         }
 
         //public IEnumerable<Student> GetStudentByBlock(int blockId)

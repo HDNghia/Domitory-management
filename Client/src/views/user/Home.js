@@ -17,7 +17,7 @@ function Home(props) {
         props.deleteUserRedux(user);
     }
     const handleCreateUser = () => {
-        props.addUserRedux();
+        props.AddstaffRedux();
     }
     const onchangeInput = (event, item) => {
         // firstName: '',
@@ -44,7 +44,7 @@ function Home(props) {
         }
         return isValid;
     }
-    const handleAddNewUser = () => {
+    const handleAddNewStaff = () => {
         let isValid = checkValideInput();
         if (isValid === true) {
             // console.log("check state: ", state);
@@ -84,7 +84,7 @@ function Home(props) {
                             onChange={(event) => onchangeInput(event, "address")}
                             value={state.address} />
                     </div>
-                    <button type="submit" class="btn btn-primary" onClick={() => handleAddNewUser()}>Add new user</button>
+                    <button type="submit" class="btn btn-primary" onClick={() => handleAddNewStaff()}>Add new user</button>
                 </form>
                 <table class="table table-hover">
                     <thead>
@@ -130,7 +130,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteUserRedux: (userDelete) => dispatch({ type: 'DELETE_USER', payload: userDelete }),
-        addUserRedux: () => dispatch({ type: 'CREATE_USER' }),
+        AddstaffRedux: () => dispatch({ type: 'CREATE_USER' }),
     }
 }
 

@@ -12,7 +12,7 @@ namespace Server.Models
         [Required]
         public DateTime BirthDate { get; set; }
         [Required]
-        public string Gender { get; set; }
+        public bool Gender { get; set; }
         [Required]
         public string Ethnic { get; set; }
         [Required]

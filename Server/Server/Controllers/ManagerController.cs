@@ -9,7 +9,7 @@ namespace Server.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ManagerController :ControllerBase
+    public class ManagerController : ControllerBase
     {
         private readonly IManager _managerRepository;
         //private readonly I _managerRepository;
@@ -23,16 +23,21 @@ namespace Server.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Manager>))]
-        public IActionResult GetAllManager() { 
+        public IActionResult GetAllManager() {
             var manager = _managerRepository.GetAllManager();
             return Ok(manager);
         }
 
-        [HttpGet("{managerId}")]
-      
+        [HttpGet("{managerId}/manager")]
+
         public IActionResult GetByManagerId(int managerId)
         {
             var manager = _managerRepository.GetManagerById(managerId);
+            return Ok(manager);
+        }
+        [HttpGet("{accountId}")]
+        public IActionResult GetManangerByAccount(int accountId) { 
+           var manager = _managerRepository.GetManagerByAccount(accountId);
             return Ok(manager);
         }
 

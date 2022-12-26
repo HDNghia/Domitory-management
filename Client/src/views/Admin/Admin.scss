@@ -5,14 +5,18 @@
     }
 
     table {
-        width: 84%;
+        width: 90%;
     }
 
     cursor: pointer;
-    ;
 }
 
 .clearfix {
     float: none;
     box-sizing: border-box;
+}
+
+#collapse1 {
+    overflow-y: scroll;
+    height: 400px;
 }

@@ -1,4 +1,4 @@
-# Domitory-Managerment
+# Dormitory-Management
 <br />
 -> Install project by VisualStudio <br />
 -> Create database on SqlServer<br />

@@ -32,6 +32,8 @@ builder.Services.AddControllers().AddJsonOptions(x =>
     x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     // ignore omitted parameters on models to enable optional params (e.g. User update)
     x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+
+    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // configure strongly typed settings object
@@ -43,6 +45,9 @@ builder.Services.AddScoped<IAccountService, AccountRepository>();
 builder.Services.AddScoped<IManager, ManagerRepository>();
 builder.Services.AddScoped<IStudent, StudentRepository>();
 builder.Services.AddScoped<IRegisterRoom, RegisterRoomRepository>();
+builder.Services.AddScoped<IElectricWaterLog, ElectricWaterLogRepository>();
+builder.Services.AddScoped<IRoom, RoomRepository>();
+builder.Services.AddScoped<IRoomTypes, RoomTypeRepository>();
 
 var app = builder.Build();
 if (args.Length == 1 && args[0].ToLower() == "seeddata")

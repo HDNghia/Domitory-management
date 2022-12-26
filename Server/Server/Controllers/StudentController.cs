@@ -9,7 +9,7 @@ namespace Server.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        private readonly IStudent  _studentRepository;
+        private readonly IStudent _studentRepository;
         private IMapper _mapper;
 
         public StudentController(IStudent studentRepository, IMapper mapper)
@@ -19,7 +19,7 @@ namespace Server.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllStudent() { 
+        public IActionResult GetAllStudent() {
             var students = _studentRepository.GetAllStudents();
             return Ok(students);
         }
@@ -38,10 +38,16 @@ namespace Server.Controllers
         //}
 
         [HttpGet("{roomId}/Room")]
-        public IActionResult GetStudentByRoomId(int id)
+        public IActionResult GetStudentByRoomId(int roomId)
         {
-            var students = _studentRepository.GetStudentByRoom(id);
+            var students = _studentRepository.GetStudentByRoom(roomId);
             return Ok(students);
+        }
+        [HttpGet("{accountId}/accountId")]
+        public IActionResult GetStudentByAccountId(int accountId){
+            var student = _studentRepository.GetStudentByAccountId(accountId);
+            return Ok(student);
+    
         }
         [HttpPut("{id}")]
         public IActionResult Update(int id, UpdateStudent model) { 

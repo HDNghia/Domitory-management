@@ -5,7 +5,7 @@
          public string LastName { get; set;}
         public string FirstName { get; set;}
         public DateTime BirthDate { get; set;}
-        public string Gender { get; set; }
+        public bool Gender { get; set; }
         public string Ethnic { get; set; }
         public string Nationnality { get; set; }
         public string PhoneNumber { get; set; }

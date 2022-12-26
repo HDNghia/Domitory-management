@@ -10,9 +10,8 @@ class SidebarStaff extends React.Component {
             var menu = document.querySelector('.sidebar')
             menu.classList.toggle("fliph");
         }
-
         return (
-            <div>
+            <div >
                 <header class="header">
                     <nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -173,14 +172,22 @@ class SidebarStaff extends React.Component {
                                 </div>
                             </div>
                             <ul class="list-sidebar bg-info">
-                                <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-address-book"></i> <span class="nav-label">Danh sách sinh viên</span></Link> </li>
-                                <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-list-alt"></i> <span class="nav-label">Danh sách phòng</span></Link> </li>
+                                <li><Link to="/admin" activeClassName="active" exact={true}><i class="fa fa-address-book"></i> <span class="nav-label">Quản lý sinh viên</span></Link> </li>
+                                <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-list-alt"></i> <span class="nav-label">Quản lý phòng</span></Link> </li>
                                 <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-laptop"></i> <span class="nav-label">Ghi và tính điện nước</span></Link> </li>
                                 <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-files-o"></i> <span class="nav-label">Sắp xếp phòng</span></Link> </li>
                                 <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-sticky-note-o"></i> <span class="nav-label">Ghi chú hư hỏng</span></Link> </li>
-                                <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-wrench"></i> <span class="nav-label">Danh sách sửa chửa</span></Link> </li>
-                                <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-exclamation-circle"></i> <span class="nav-label">Danh sách vi phạm</span></Link> </li>
+                                <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-wrench"></i> <span class="nav-label">Quản lý sửa chửa</span></Link> </li>
+                                <li><Link to="/staff" activeClassName="active" exact={true}><i class="fa fa-exclamation-circle"></i> <span class="nav-label">Quản lý vi phạm</span></Link> </li>
                                 <li><Link to="/Login" activeClassName="active" exact={true}><i class="fa fa-sign-out"></i> <span class="nav-label">Log out</span></Link> </li>
+                                <li class="text-info" ><div>.</div></li>
+                                <li class="text-info" ><div>.</div></li>
+                                <li class="text-info" ><div>.</div></li>
+                                <li class="text-info" ><div>.</div></li>
+                                <li class="text-info" ><div>.</div></li>
+                                <li class="text-info" ><div>.</div></li>
+                                <li class="text-info" ><div>.</div></li>
+                                <li class="text-info" ><div>.</div></li>
                             </ul>
                         </div>
                     </aside>

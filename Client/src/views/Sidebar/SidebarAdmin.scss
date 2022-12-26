@@ -9,34 +9,42 @@ header {
     }
 }
 
-.main {
-    float: left;
+.sidebar-for-admin {
+    position: sticky;
+    top: 0;
+    background-color: white;
 
-    h3 {
-        padding: 16px;
-        color: red;
-    }
+    .main {
+        float: left;
 
-    p {
-        margin-left: -25px;
-        margin-top: -15px;
-    }
+        h3 {
+            padding: 16px;
+            color: red;
+        }
 
-    .sidebar {
-        background-color: white;
+        p {
+            margin-left: -25px;
+            margin-top: -15px;
+        }
 
-        ul {
-            border-radius: 0px 0px 8px 0px;
+        .sidebar {
+            background-color: white;
+            position: sticky;
+            top: 0;
 
-            li a:hover {
-                background-color: #418fc8 !important;
+            ul {
+                border-radius: 0px 0px 8px 0px;
+
+                li a:hover {
+                    background-color: #418fc8 !important;
+                }
             }
         }
+
+
+        .user-panel {
+            background-color: #418fc8;
+        }
+
     }
-
-
-    .user-panel {
-        background-color: #418fc8;
-    }
-
 }

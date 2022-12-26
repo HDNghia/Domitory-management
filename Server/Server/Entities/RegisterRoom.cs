@@ -1,7 +1,13 @@
-﻿namespace Server.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace Server.Models
 {
     public class RegisterRoom
     {
+        //[ScaffoldColumn(false)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public int StudentId { get; set; }
         public int RoomId { get; set; }
         public DateTime DateBegin { get; set; }

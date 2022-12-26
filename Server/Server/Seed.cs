@@ -1,6 +1,7 @@
 ﻿using Server.Data;
 using Server.Models;
 using System.Runtime.ExceptionServices;
+using static System.Reflection.Metadata.BlobBuilder;
 using BCryptNet = BCrypt.Net.BCrypt;
 namespace Server
 {
@@ -149,6 +150,123 @@ namespace Server
                     }
                 };
                 dataContext.Universities.AddRange(university);
+                dataContext.SaveChanges();
+            }
+
+            if (!dataContext.Students.Any()) {
+                var students = new List<Student>
+                {
+                    new Student() {
+                        LastName ="Tuan",
+                        FirstName="Trung",
+                        BirthDate = new DateTime(2002,02,02),
+                        Gender = true,
+                        Ethnic = "Kinh",
+                        Nationnality = "Việt Nam",
+                        PhoneNumber = "02322222",
+                        HomeAddress = "Xuân Lộc, Đồng Nai",
+                        MainAddress = "KTXA, Linh Trung, Thủ Đức",
+                        Email = "tuan@gmail.com",
+                        Avartar = Convert.FromBase64String("test"),
+                        IdentifyCardNumber = "00020202020",
+                        UniversitysutdentId ="20522068",
+                        Faculty = "Information system",
+                        Major = "Information system",
+                        SchoolYear = "2020-2024",
+                        RelatedPersonName = "Ba",
+                        RelatedPersonPhoneNumber = "12344",
+                        status = true,
+                        University = dataContext.Universities.Where(u=>u.Id==1).FirstOrDefault(),
+                        account = new Account{
+                            UserName ="tuan@gmail.com",
+                            PasswordHash =BCryptNet.HashPassword("123456"),
+                            Role= Role.Student
+                        }
+                    },
+                     new Student() {
+                        LastName ="Dang",
+                        FirstName="Ngia",
+                        BirthDate = new DateTime(2002,02,02),
+                        Gender = true,
+                        Ethnic = "Kinh",
+                        Nationnality = "Việt Nam",
+                        PhoneNumber = "02322222",
+                        HomeAddress = "Xuân Lộc, Đồng Nai",
+                        MainAddress = "KTXA, Linh Trung, Thủ Đức",
+                        Email = "dangnghia@gmail.com",
+                        Avartar = Convert.FromBase64String("test"),
+                        IdentifyCardNumber = "00020202020",
+                        UniversitysutdentId ="20522068",
+                        Faculty = "Information system",
+                        Major = "Information system",
+                        SchoolYear = "2020-2024",
+                        RelatedPersonName = "Ba",
+                        RelatedPersonPhoneNumber = "12344",
+                        status = true,
+                        University = dataContext.Universities.Where(u=>u.Id==1).FirstOrDefault(),
+                        account = new Account{
+                            UserName ="dangnghia@gmail.com",
+                            PasswordHash =BCryptNet.HashPassword("123456"),
+                            Role= Role.Student
+                        }
+                    },
+                      new Student() {
+                        LastName ="Bao",
+                        FirstName="An",
+                        BirthDate = new DateTime(2002,02,02),
+                        Gender = true,
+                        Ethnic = "Kinh",
+                        Nationnality = "Việt Nam",
+                        PhoneNumber = "02322222",
+                        HomeAddress = "Xuân Lộc, Đồng Nai",
+                        MainAddress = "KTXA, Linh Trung, Thủ Đức",
+                        Email = "baoan@gmail.com",
+                        Avartar = Convert.FromBase64String("test"),
+                        IdentifyCardNumber = "00020202020",
+                        UniversitysutdentId ="20522068",
+                        Faculty = "Information system",
+                        Major = "Information system",
+                        SchoolYear = "2020-2024",
+                        RelatedPersonName = "Ba",
+                        RelatedPersonPhoneNumber = "12344",
+                        status = true,
+                        University = dataContext.Universities.Where(u=>u.Id==2).FirstOrDefault(),
+                        account = new Account{
+                            UserName ="baoan@gmail.com",
+                            PasswordHash =BCryptNet.HashPassword("123456"),
+                            Role= Role.Student
+                        }
+
+                    },
+                       new Student() {
+                        LastName ="Thao",
+                        FirstName="Trang",
+                        BirthDate = new DateTime(2002,02,02),
+                        Gender = true,
+                        Ethnic = "Kinh",
+                        Nationnality = "Việt Nam",
+                        PhoneNumber = "02322222",
+                        HomeAddress = "Xuân Lộc, Đồng Nai",
+                        MainAddress = "KTXA, Linh Trung, Thủ Đức",
+                        Email = "thaotrang@gmail.com",
+                        Avartar = Convert.FromBase64String("test"),
+                        IdentifyCardNumber = "00020202020",
+                        UniversitysutdentId ="20522068",
+                        Faculty = "Information system",
+                        Major = "Information system",
+                        SchoolYear = "2020-2024",
+                        RelatedPersonName = "Ba",
+                        RelatedPersonPhoneNumber = "12344",
+                        status = true,
+                        University = dataContext.Universities.Where(u=>u.Id==3).FirstOrDefault(),
+                        account = new Account{
+                            UserName ="thaotrang@gmail.com",
+                            PasswordHash =BCryptNet.HashPassword("123456"),
+                            Role= Role.Student
+                        }
+                       }
+                };
+                dataContext.Students.AddRange(students);
                 dataContext.SaveChanges();
             }
                 

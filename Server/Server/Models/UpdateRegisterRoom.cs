@@ -5,6 +5,8 @@ namespace Server.Models
 {
     public class UpdateRegisterRoom
     {
+       
+      
         public int StudentId { get; set; }
         public int RoomId { get; set; }
         [DataType(DataType.Date)]
